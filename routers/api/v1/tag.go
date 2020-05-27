@@ -1,7 +1,6 @@
 package v1
 
 import (
-	"dashboard_proxy"
 	"gin-blog/models"
 	"gin-blog/pkg/e"
 	"gin-blog/pkg/setting"
