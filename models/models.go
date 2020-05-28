@@ -5,6 +5,8 @@ import (
 	"gin-blog/pkg/log"
 	"gin-blog/pkg/setting"
 	"github.com/jinzhu/gorm"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 var db *gorm.DB
@@ -33,7 +35,7 @@ func init() {
 	host = sec.Key("host").String()
 	tablePrefix = sec.Key("table_prefix").String()
 
-	db, err = gorm.Open(dbType, fmt.Printf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local", user, password, host, dbName))
+	db, err = gorm.Open(dbType, fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local", user, password, host, dbName))
 	if err != nil {
 		log.Error(err)
 	}
