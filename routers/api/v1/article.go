@@ -1,7 +1,6 @@
 package v1
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/astaxie/beego/validation"
@@ -10,6 +9,7 @@ import (
 
 	"gin-blog/models"
 	"gin-blog/pkg/e"
+	"gin-blog/pkg/log"
 	"gin-blog/pkg/setting"
 	"gin-blog/pkg/util"
 )
@@ -32,7 +32,7 @@ func GetArticle(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Println(err.Key, err.Message)
+			log.Info(err.Key, err.Message)
 		}
 	}
 
@@ -74,7 +74,7 @@ func GetArticles(c *gin.Context) {
 
 	} else {
 		for _, err := range valid.Errors {
-			log.Println(err.Key, err.Message)
+			log.Info(err.Key, err.Message)
 		}
 	}
 
@@ -120,7 +120,7 @@ func AddArticle(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Println(err.Key, err.Message)
+			log.Info(err.Key, err.Message)
 		}
 	}
 
@@ -185,7 +185,7 @@ func EditArticle(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Println(err.Key, err.Message)
+			log.Info(err.Key, err.Message)
 		}
 	}
 
@@ -213,7 +213,7 @@ func DeleteArticle(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Println(err.Key, err.Message)
+			log.Info(err.Key, err.Message)
 		}
 	}
 

@@ -2,9 +2,9 @@ package models
 
 import (
 	"fmt"
+	"gin-blog/pkg/log"
 	"gin-blog/pkg/setting"
 	"github.com/jinzhu/gorm"
-	"log"
 )
 
 var db *gorm.DB
@@ -35,7 +35,7 @@ func init() {
 
 	db, err = gorm.Open(dbType, fmt.Printf("%s:%s@tcp(%s)/%s?charset=utf8&parseTime=True&loc=Local", user, password, host, dbName))
 	if err != nil {
-		log.Println(err)
+		log.Error(err)
 	}
 
 	gorm.DefaultTableNameHandler = func(db *gorm.DB, defaultTableName string) string {
